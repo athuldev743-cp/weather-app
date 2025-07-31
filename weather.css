@@ -1,15 +1,28 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.header{
-    width: 100%;
-    height: 140px;
-    background: rgb(0, 255, 255);
-    margin-top: 0;
-    padding: 0;
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #e0f7fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Header */
+.header {
+  width: 100%;
+  height: 140px;
+  background: rgb(0, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -23,33 +36,44 @@
 
 .header_text {
   animation: fadeSlideUp 1s ease-out forwards;
-  opacity: 0; 
-  margin-top: 0;
+  opacity: 0;
   font-size: 2rem;
-  margin-left: 200px;
-  padding: 0;
+  color: #111;
+  text-align: center;
+  padding: 0 20px;
 }
-.main_body{
-    width: 100%;
-    height: 1000px;
-    background: #31112d;
-    overflow: hidden;
-}
-.w_part{
-    width: 400px;
-    height: 500px;
-    background: rgb(0, 255, 255); 
-    margin-top: 60px;
-    margin-left: 550px;
 
-
+/* Main content area */
+.main_body {
+  flex: 1;
+  width: 100%;
+  height: 700px;
+  background: #31112d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
 }
-.w_part input, .w_part button {
-  width: 90%;
-  padding: 10px;
-  margin-top: 10px;
+
+/* Weather card */
+.w_part {
+  width: 100%;
+  max-width: 500px;
+  background: rgb(0, 255, 255);
+  margin-bottom: 200px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Input and button styling */
+.w_part input,
+.w_part button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
 }
 
@@ -58,12 +82,13 @@
   color: #111;
   cursor: pointer;
 }
+
+/* Main weather button */
 .weather_btn {
-  width: 90%;
+  width: 100%;
   padding: 12px;
   margin-top: 15px;
-  margin-left: 20px;
-  background-color: #00ffff; /* electric blue */
+  background-color: #00ffff;
   color: #111;
   border: none;
   border-radius: 8px;
@@ -80,7 +105,7 @@
   transform: scale(1.03);
 }
 
-
+/* Popup */
 .popup {
   display: none;
   position: fixed;
@@ -91,11 +116,31 @@
   padding: 20px;
   border: 2px solid #00ffff;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,255,255,0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
   z-index: 9999;
 }
 
 .popup_content {
   font-size: 18px;
   color: #222;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 600px) {
+  .header {
+    height: 100px;
+  }
+
+  .header_text {
+    font-size: 1.5rem;
+  }
+
+  .w_part {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .weather_btn {
+    font-size: 15px;
+  }
 }
